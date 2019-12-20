@@ -1,43 +1,50 @@
 // create variables to reference all DOM elements we're working with
-  
-  // time-left
 
-  // start game button
-  // start-screen element
-
-  // quiz-content
-
-  // post-game-screen
-  // user-score
-  // play-again-btn
+// time-left
+var timeLeft = document.getElementById("time-left");
+// start game button
+var startGameBtn = document.getElementById("start-game-btn");
+// start-screen element
+var startScreenEl = document.getElementById("start-screen");
+// quiz-content
+var quizContent = document.getElementById("quiz-content");
+// post-game-screen
+var postGameScreen = document.getElementById("post-game-screen");
+// user-score
+var userScore = document.getElementById("user-score");
+// play-again-btn
+var playAgainBtn = document.getElementById("play-again-btn");
 
 
 // create variables for game logic
-  // timerIntervalId
-  // score
-  // secondsLeft
+// timerIntervalId
+var timerIntervalId = 
+// score
+var score = 
+// secondsLeft
+var secondsLeft = 
 
 
 // create function to start game
-  // set secondsLeft variable starting time (300 seconds = 5 minutes)
-  // write secondsLeft to the page
+// set secondsLeft variable starting time (300 seconds = 5 minutes)
+// write secondsLeft to the page
 
-  // reset score to 0
-  // write score to the page (optional)
+// reset score to 0
+// write score to the page (optional)
 
-  // hide start-screen element && post-game-screen
-  // show quiz-content element
+// hide start-screen element && post-game-screen
+// show quiz-content element
 
-  // display first question
-  displayQuestion(0);
+// display first question
+displayQuestion(0);
 
-  // set timerIntervalId to setInterval function that decrements secondsLeft every second
-  timerIntervalId = setInterval(function() {
-    secondsLeft--;
-    if (secondsLeft <= 0) {
-      stopGame();
-    }
-  }, 1000);
+// set timerIntervalId to setInterval function that decrements secondsLeft every second
+timerIntervalId = setInterval(function () {
+  secondsLeft--;
+  if (secondsLeft <= 0) {
+    stopGame();
+  }
+}, 1000);
 
 
 
@@ -62,7 +69,7 @@ function displayQuestion(questionIndex) {
   // check to see if choice picked is same as questions correct answer
   // if yes, increase score++
   // if no, subtract time from secondsLeft
-  
+
   // get index of next question (this question's index + 1)
   // run displayQuestion(nextQuestionIndex)
 
