@@ -18,17 +18,19 @@ var playAgainBtn = document.getElementById("play-again-btn");
 
 // create variables for game logic
 // timerIntervalId
-var timerIntervalId = 
+var timerIntervalId;
 // score
-var score = 
+var score; 
 // secondsLeft
-var secondsLeft = 
-
+var secondsLeft;
 
 // create function to start game
+function gameStart() {
 // set secondsLeft variable starting time (300 seconds = 5 minutes)
-// write secondsLeft to the page
+secondsLeft = setInterval(gameStart, 1000);
 
+// write secondsLeft to the page
+document.getElementById("time-left").innerHTML = 
 // reset score to 0
 // write score to the page (optional)
 
@@ -45,7 +47,7 @@ timerIntervalId = setInterval(function () {
     stopGame();
   }
 }, 1000);
-
+}
 
 
 // create function to display a question and possible choices
