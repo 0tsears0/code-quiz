@@ -20,18 +20,19 @@ var playAgainBtn = document.getElementById("play-again-btn");
 // timerIntervalId
 var timerIntervalId;
 // score
-var score; 
+var score = 0
 // secondsLeft
-var secondsLeft;
+var secondsLeft = 300;
 
 // create function to start game
 function gameStart() {
 // set secondsLeft variable starting time (300 seconds = 5 minutes)
-secondsLeft = setInterval(gameStart, 1000);
+
 
 // write secondsLeft to the page
-document.getElementById("time-left").innerHTML = 
+timeLeft.textContent = secondsLeft 
 // reset score to 0
+score = 0;
 // write score to the page (optional)
 
 // hide start-screen element && post-game-screen
@@ -49,6 +50,9 @@ timerIntervalId = setInterval(function () {
 }, 1000);
 }
 
+function stopGame() {
+  clearInterval(timerIntervalId)
+}
 
 // create function to display a question and possible choices
 function displayQuestion(questionIndex) {
