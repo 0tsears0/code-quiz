@@ -20,30 +20,26 @@ var playAgainBtn = document.getElementById("play-again-btn");
 // timerIntervalId
 var timerIntervalId;
 // score
-var score = 0
-// secondsLeft
+var score = 0;
+// set secondsLeft variable starting time (300 seconds = 5 minutes)
 var secondsLeft = 300;
 
 // create function to start game
 function gameStart() {
-// set secondsLeft variable starting time (300 seconds = 5 minutes)
-
-
 // write secondsLeft to the page
-timeLeft.textContent = secondsLeft 
+timeLeft.textContent = secondsLeft;
 // reset score to 0
 score = 0;
-// write score to the page (optional)
-
 // hide start-screen element && post-game-screen
-// show quiz-content element
-
+startScreenEl.classList.add('hide');
+postGameScreen.classList.add('hide');
+quizContent.classList.remove('hide');
 // display first question
 displayQuestion(0);
-
 // set timerIntervalId to setInterval function that decrements secondsLeft every second
 timerIntervalId = setInterval(function () {
   secondsLeft--;
+  timeLeft.textContent = secondsLeft;
   if (secondsLeft <= 0) {
     stopGame();
   }
@@ -51,7 +47,7 @@ timerIntervalId = setInterval(function () {
 }
 
 function stopGame() {
-  clearInterval(timerIntervalId)
+  clearInterval(timerIntervalId);
 }
 
 // create function to display a question and possible choices
@@ -63,7 +59,17 @@ function displayQuestion(questionIndex) {
   }
 
   // get questions[questionIndex]
+  var currentQuestion = questions[questionIndex];
   // print question to the page
+  var questionContent = `
+  <div data-question-index=${questionIndex}>
+    <h2>${currentQuestion.question}</h2>
+
+    ${currentQuestion.choices.map(choice => `<button>${choice}</button>`).join('')}
+  </div>
+  `
+
+  quizContent.innerHTML = questionContent;
   // use data attribute to know which index the question is
   // loop through choices and print out choices to the page (make them buttons)
 
@@ -91,6 +97,7 @@ function displayQuestion(questionIndex) {
 
 // add event listeners
   // start game button (for starting the game)
+startGameBtn.addEventListener('click', gameStart);
   // quizcontent (for answering a question) -> use event delegation
   // play again button (for starting the game)
 
