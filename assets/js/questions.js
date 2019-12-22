@@ -10,19 +10,19 @@ var questions = [
     answer: ["I love it", "Please end me"]
   },
   {
-    question: "JavaScript's muse was cocaine",
+    question: "JavaScript's creator's muse was cocaine.",
     choices: ["True", "False"],
     answer: "True"
-  },
-  {
-    question: "How awesome is Alex?",
-    choices: ["Only by a lot!", "That'll do pig"],
-    answer: ["Only by a lot!", "That'll do pig"]
   },
   {
     question: "What have you given up to be here?",
     choices: ["Just Money", "My soul"],
     answer: ["Just Money", "My soul"]
+  },
+  {
+    question: "How awesome is Alex?",
+    choices: ["Only by a lot!", "That'll do pig"],
+    answer: ["Only by a lot!", "That'll do pig"]
   },
   {
     question: "Is true true?",
@@ -40,64 +40,64 @@ var questions = [
     answer: "Yes, I'm ready to be a sub"
   },
   {
-    question: "JavaScript is awesome.",
+    question: "Is resistance futile?",
     choices: ["True", "False"],
     answer: "True"
   },
   {
-    question: "JavaScript is awesome.",
+    question: "Do you want a high-paying job or plenty of free time?",
+    choices: ["Yes"],
+    answer: "Yes"
+  },
+  {
+    question: "Is the word moist unnerving?",
+    choices: ["Yes *shudders*", "It excites me"],
+    answer: ["Yes *shudders*", "It excites me"]
+  },
+  {
+    question: "Is this class worth it?",
+    choices: ["Every penny", "Too late now"],
+    answer: "Too late now"
+  },
+  {
+    question: "Will you review over break?",
+    choices: ["No, I understand everything perfectly", "Does a cow moo??"],
+    answer: "Does a cow moo??"
+  },
+  {
+    question: "If a tree falls and no one is there to hear it, does it make a sound?",
+    choices: ["Yes", "No"],
+    answer: "Yes"
+  },
+  {
+    question: "You need a coding background to be successful in this class.",
+    choices: ["True", "False"],
+    answer: "False"
+  },
+  {
+    question: "Does absolute power corrupt absolutely?",
+    choices: ["Yes, always", "No"],
+    answer: "No"
+  },
+  {
+    question: "Technological progress is inevitable.",
     choices: ["True", "False"],
     answer: "True"
   },
   {
-    question: "JavaScript is awesome.",
+    question: "Life requires a purpose.",
+    choices: ["True", "False"],
+    answer: "False"
+  },
+  {
+    question: "Pseudocoding is your friend.",
     choices: ["True", "False"],
     answer: "True"
   },
   {
-    question: "JavaScript is awesome.",
-    choices: ["True", "False"],
-    answer: "True"
-  },
-  {
-    question: "JavaScript is awesome.",
-    choices: ["True", "False"],
-    answer: "True"
-  },
-  {
-    question: "JavaScript is awesome.",
-    choices: ["True", "False"],
-    answer: "True"
-  },
-  {
-    question: "JavaScript is awesome.",
-    choices: ["True", "False"],
-    answer: "True"
-  },
-  {
-    question: "JavaScript is awesome.",
-    choices: ["True", "False"],
-    answer: "True"
-  },
-  {
-    question: "JavaScript is awesome.",
-    choices: ["True", "False"],
-    answer: "True"
-  },
-  {
-    question: "JavaScript is awesome.",
-    choices: ["True", "False"],
-    answer: "True"
-  },
-  {
-    question: "JavaScript is awesome.",
-    choices: ["True", "False"],
-    answer: "True"
-  },
-  {
-    question: "JavaScript is awesome.",
-    choices: ["True", "False"],
-    answer: "True"
+    question: "One more time, is false false?",
+    choices: ["True", "Stahp"],
+    answer: ["True", "Stahp"]
   }
 
 ];
