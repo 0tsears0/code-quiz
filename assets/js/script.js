@@ -118,10 +118,10 @@ function handleChoiceClick(event) {
     // time left goes down
   if (selectedAnswer === questionAnswered.answer) {
     score ++
+  } 
+  else {
+  timeLeft --
   }
-
-
-   
 
   var nextQuestionIndex = questionIndex + 1;
   console.log(nextQuestionIndex);
