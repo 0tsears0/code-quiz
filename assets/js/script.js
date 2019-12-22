@@ -15,7 +15,7 @@ var userScore = document.getElementById("user-score");
 // play-again-btn
 var playAgainBtn = document.getElementById("play-again-btn");
 
-
+var choice = document.getElementsByClassName("choice");
 // create variables for game logic
 // timerIntervalId
 var timerIntervalId;
@@ -26,24 +26,24 @@ var secondsLeft = 300;
 
 // create function to start game
 function gameStart() {
-// write secondsLeft to the page
-timeLeft.textContent = secondsLeft;
-// reset score to 0
-score = 0;
-// hide start-screen element && post-game-screen
-startScreenEl.classList.add('hide');
-postGameScreen.classList.add('hide');
-quizContent.classList.remove('hide');
-// display first question
-displayQuestion(0);
-// set timerIntervalId to setInterval function that decrements secondsLeft every second
-timerIntervalId = setInterval(function () {
-  secondsLeft--;
+  // write secondsLeft to the page
   timeLeft.textContent = secondsLeft;
-  if (secondsLeft <= 0) {
-    stopGame();
-  }
-}, 1000);
+  // reset score to 0
+  score = 0;
+  // hide start-screen element && post-game-screen
+  startScreenEl.classList.add('hide');
+  postGameScreen.classList.add('hide');
+  quizContent.classList.remove('hide');
+  // display first question
+  displayQuestion(0);
+  // set timerIntervalId to setInterval function that decrements secondsLeft every second
+  timerIntervalId = setInterval(function () {
+    secondsLeft--;
+    timeLeft.textContent = secondsLeft;
+    if (secondsLeft <= 0) {
+      stopGame();
+    }
+  }, 1000);
 }
 
 function stopGame() {
@@ -57,25 +57,27 @@ function displayQuestion(questionIndex) {
     // stop game, we've hit last question
     return stopGame();
   }
+  for (i = 0; i < questions.length; i++) {
 
-  // get questions[questionIndex]
-  var currentQuestion = questions[questionIndex];
-  // print question to the page
-  var questionContent = `
+
+    // get questions[questionIndex]
+    var currentQuestion = questions[questionIndex];
+    // print question to the page
+    var questionContent = `
   <div data-question-index=${questionIndex}>
     <h2>${currentQuestion.question}</h2>
 
-    ${currentQuestion.choices.map(choice => `<button>${choice}</button>`).join('')}
+    ${currentQuestion.choices.map(choice => `<button class="choice">${choice}</button>`).join('')}
   </div>
   `
 
-  quizContent.innerHTML = questionContent;
-  // use data attribute to know which index the question is
-  // loop through choices and print out choices to the page (make them buttons)
+    quizContent.innerHTML = questionContent;
+    // use data attribute to know which index the question is
+    // loop through choices and print out choices to the page (make them buttons)
 
-}
+  }
+  // create function to handle users answering
 
-// create function to handle users answering
   // use event delegation to make sure button was clicked
   // read data attribute of what question we answered (index)
   // check to see if choice picked is same as questions correct answer
@@ -87,17 +89,50 @@ function displayQuestion(questionIndex) {
 
 
 
-// create a function to stop the game (either by answering all the questions or time has run out)
+  // create a function to stop the game (either by answering all the questions or time has run out)
   // clearInterval() to stop the timer
   // hide quiz-content element
   // show post-game-screen
   // print out user score
 
+}
 
+function handleChoiceClick(event) {
+  console.log(event.target);
+
+  if (!event.target.matches(".choice")) {
+    return false;
+  }
+
+  var selectedAnswer = event.target.textContent;
+  console.log(selectedAnswer);
+  var questionIndex = parseInt(event.target.parentNode.getAttribute('data-question-index'));
+  console.log(questionIndex);
+
+  var questionAnswered = questions[questionIndex];
+
+
+  // if selectedAnswer === questionAnswered.answer
+    // then score goes up
+  // else
+    // time left goes down
+  if (selectedAnswer === questionAnswered.answer) {
+    score ++
+  }
+
+
+   
+
+  var nextQuestionIndex = questionIndex + 1;
+  console.log(nextQuestionIndex);
+  displayQuestion(nextQuestionIndex);
+}
 
 // add event listeners
-  // start game button (for starting the game)
+// start game button (for starting the game)
 startGameBtn.addEventListener('click', gameStart);
-  // quizcontent (for answering a question) -> use event delegation
-  // play again button (for starting the game)
 
+
+  // quizcontent (for answering a question) -> use event delegation
+quizContent.addEventListener('click', handleChoiceClick);
+  // play again button (for starting the game)
