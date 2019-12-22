@@ -72,59 +72,36 @@ function displayQuestion(questionIndex) {
   `
 
     quizContent.innerHTML = questionContent;
-    // use data attribute to know which index the question is
-    // loop through choices and print out choices to the page (make them buttons)
-
   }
-  // create function to handle users answering
+  
+  }
 
-  // use event delegation to make sure button was clicked
-  // read data attribute of what question we answered (index)
-  // check to see if choice picked is same as questions correct answer
-  // if yes, increase score++
-  // if no, subtract time from secondsLeft
-
-  // get index of next question (this question's index + 1)
-  // run displayQuestion(nextQuestionIndex)
-
-
-
-  // create a function to stop the game (either by answering all the questions or time has run out)
-  // clearInterval() to stop the timer
-  // hide quiz-content element
-  // show post-game-screen
-  // print out user score
-
-}
 
 function handleChoiceClick(event) {
-  console.log(event.target);
 
   if (!event.target.matches(".choice")) {
     return false;
   }
 
   var selectedAnswer = event.target.textContent;
-  console.log(selectedAnswer);
+
   var questionIndex = parseInt(event.target.parentNode.getAttribute('data-question-index'));
-  console.log(questionIndex);
 
   var questionAnswered = questions[questionIndex];
 
 
   // if selectedAnswer === questionAnswered.answer
-    // then score goes up
+  // then score goes up
   // else
-    // time left goes down
+  // time left goes down
   if (selectedAnswer === questionAnswered.answer) {
-    score ++
-  } 
+    score++
+  }
   else {
-  timeLeft --
+    timeLeft--
   }
 
   var nextQuestionIndex = questionIndex + 1;
-  console.log(nextQuestionIndex);
   displayQuestion(nextQuestionIndex);
 }
 
@@ -132,7 +109,8 @@ function handleChoiceClick(event) {
 // start game button (for starting the game)
 startGameBtn.addEventListener('click', gameStart);
 
-
-  // quizcontent (for answering a question) -> use event delegation
+// quizcontent (for answering a question) -> use event delegation
 quizContent.addEventListener('click', handleChoiceClick);
-  // play again button (for starting the game)
+
+// play again button (for starting the game)
+playAgainBtn.addEventListener('click', gameStart);
