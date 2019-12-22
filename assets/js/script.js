@@ -73,9 +73,7 @@ function displayQuestion(questionIndex) {
 
     quizContent.innerHTML = questionContent;
   }
-  
-  }
-
+}
 
 function handleChoiceClick(event) {
 
